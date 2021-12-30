@@ -1,0 +1,18 @@
+
+server:
+  port: 9191
+spring:
+  application:
+    name: API-GATEWAYE
+  cloud:
+    gateway:
+      routes:
+        - id: Donor
+          uri: lb://Donor
+          predicates:
+            - Path=/donor_data/**
+
+        - id: ManageRequest
+          uri: lb://ManageRequest
+          predicates:
+            - Path=/donorrequest/**
